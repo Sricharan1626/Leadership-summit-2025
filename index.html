@@ -126,29 +126,91 @@
     /*--------------------------------------------------------------
     # Header
     --------------------------------------------------------------*/
-    #header {
-      background: rgba(42, 44, 60, 0);
-      transition: all 0.5s;
-      z-index: 997;
-      padding: 15px;
-      width:100%;
-      position: fixed
+   /* Existing Header */
+#header {
+  background: rgba(42, 44, 60, 0.2);
+  transition: all 0.5s;
+  z-index: 997;
+  padding: 15px;
+  width: 100%;
+  position: fixed;
+}
 
-    }
+#header.header-scrolled {
+  background: rgba(79, 81, 96, 0.9);
+}
 
-    #header.header-scrolled {
-      background: rgba(42, 44, 60, 0.70);
-    }
+/* ✅ Updated container — now a single row */
+#header .container {
+  display: flex;
+  flex-direction: row; /* Back to a row layout */
+  justify-content: space-between; /* Pushes logos left, nav right */
+  align-items: center;
+}
+
+#header .logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Align logos to the start */
+  gap: 10px; /* Reduced gap */
+  flex-wrap: wrap; /* ✅ Allows logos to wrap to a new line */
+}
+
+#header .logo-container img {
+  max-height: 60px; /* Reduced logo height to fit in one row */
+  transition: all 0.3s ease;
+}
+
+/* ✅ Make logos smaller on small screens */
+@media (max-width: 768px) {
+  #header .logo-container img {
+    max-height: 29px;
     
-    #header .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
+  }
+}
+@media (max-width: 478px) {
+  #header .logo-container img {
+    max-height: 1px;
+    visibility: hidden;
+    
+    
+  }
+}
+    
 
-    #header .logo-container img {
-      max-height: 60px;
-    }
+/* ✅ Two-row layout for large screens */
+@media (min-width: 992px) {
+  #header .container {
+    flex-direction: column;
+    align-items: center; /* Center both blocks horizontally */
+  }
+
+  #header .logo-container {
+    justify-content: center; /* Center the logos within their container */
+    padding-bottom: 5px; /* Space between logos and nav */
+    flex-wrap: wrap; /* Ensure logos still wrap if needed */
+  }
+  
+  #header .logo-container img {
+    max-height: 50px; /* Larger logos for 2-row layout */
+  }
+
+  #header .navbar {
+    width: 100%; /* Make navbar take full width */
+    padding: 0;
+  }
+  
+  #header .navbar ul {
+    justify-content: center; /* Center the nav links */
+    width: 100%;
+  }
+
+  #header .navbar a,
+  #header .navbar a:focus {
+    padding: 10px 15px; /* Adjust padding for centered look */
+  }
+}
+
 
     /*--------------------------------------------------------------
     # Navigation Menu
@@ -265,84 +327,104 @@
     # Hero Section
     --------------------------------------------------------------*/
     #hero {
-      width: 100%;
-      height: 100vh;
-      background: url("assets/symbiosis/image (5).png") center center;
-      background-size: cover;
-      position: relative;
-    }
+          width: 100%;
+          height: 100vh;
+          /* Using a placeholder for the background image */
+          background: url('assets/symbiosis/image (5).png') center center;
+          background-size: cover;
+          position: relative;
+        }
 
-    #hero:before {
-      content: "";
-      background: rgba(42, 44, 57, 0.6);
-      position: absolute;
-      bottom: 0;
-      top: 0;
-      left: 0;
-      right: 0;
-    }
+        #hero:before {
+          content: "";
+          background: rgba(42, 44, 57, 0.6);
+          position: absolute;
+          bottom: 0;
+          top: 0;
+          left: 0;
+          right: 0;
+        }
 
-    #hero .hero-container {
-      position: absolute;
-      bottom: 0;
-      top: 0;
-      left: 0;
-      right: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-      color: #fff;
-    }
+        #hero .hero-container {
+          position: absolute;
+          bottom: 0;
+          top: 0;
+          left: 0;
+          right: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          text-align: center;
+          color: #fff;
+          /* NOTE: This padding is designed to clear a fixed header.
+            Without the header, you might not need it, or you might need less.
+          */
+          padding-top: 140px; 
+        }
 
-    #hero h2 {
-      color: #fff;
-      margin-bottom: 10px;
-      font-size: 24px;
-      font-weight: 300;
-    }
+        #hero h2 {
+          color: #fff;
+          margin-bottom: 10px;
+          font-size: 24px;
+          font-weight: 300;
+        }
 
-    #hero p {
-      font-style: italic;
-    }
+        #hero p {
+          font-style: italic;
+        }
 
-    #hero h1 {
-      margin: 0 10 60px 0;
-      padding-top:10%;
-      font-size: 90px;
-      font-weight: 700;
-      line-height: 72px;
-      color: #fff;
-    }
+        #hero h1 {
+          margin: 0 10 60px 0;
+          font-size: 90px;
+          font-weight: 700;
+          line-height: 72px;
+          color: #fff;
+        }
 
-    #hero .hero-title h5, #hero .hero-title h6, #hero .hero-title h7 {
-      color: rgba(255, 255, 255, 0.8);
-      font-size: 20px;
-    }
-    
-    #hero .hero-title h5 {
-       font-size: 50px;
-       font-weight: 600;
-    }
-    
-     #hero .hero-title h6 {
-       font-size: 45px;
-       max-width: 600px;
-       margin: 10px auto;
-    }
+        #hero .hero-title h5, #hero .hero-title h6, #hero .hero-title h7 {
+          color: rgba(255, 255, 255, 0.8);
+          font-size: 20px;
+        }
+        
+        #hero .hero-title h5 {
+           font-size: 50px;
+           font-weight: 600;
+        }
+        
+         #hero .hero-title h6 {
+           font-size: 45px;
+           max-width: 600px;
+           margin: 10px auto;
+        }
 
+        /* This query adjusts padding for a desktop header */
+        @media (min-width: 768px) {
+          #hero .hero-container {
+            padding-top: 120px;
+          }
+        }
 
-    @media (max-width: 768px) {
-      #hero h1 {
-        font-size: 40px;
-        line-height: 48px;
-        margin-bottom: 20px;
-      }
-      #hero h2 {
-        font-size: 18px;
-      }
-    }
+        /* This query adjusts font sizes for mobile */
+        @media (max-width: 768px) {
+          #hero h1 {
+            font-size: 40px;
+            line-height: 48px;
+            margin-bottom: 20px;
+          }
+          #hero h2 {
+            font-size: 18px;
+          }
+           #hero .hero-title h5 {
+               font-size: 30px;
+           }
+           #hero .hero-title h6 {
+               font-size: 24px;
+           }
+           #hero .hero-title h7 {
+               font-size: 16px;
+           }
+        }
     
     /*--------------------------------------------------------------
     # About Section
@@ -541,9 +623,19 @@
       border-radius: 10px;
       box-shadow: 0 2px 15px rgba(0,0,0,0.08);
       margin-bottom: 20px;
-      display: flex;
-      align-items: flex-start;
-      gap: 20px;
+      /* Removed display: flex and related properties */
+      /* display: flex; */
+      /* align-items: flex-start; */
+      /* gap: 20px; */
+    }
+    
+    #schedule .schedule-item > div:first-child { /* The time container */
+        /* flex-shrink: 0; */
+        margin-bottom: 10px; /* Added space between time and details */
+    }
+    
+    #schedule .schedule-item > div:last-child { /* The details container */
+        /* flex-grow: 1; */
     }
 
     #schedule .schedule-item time {
@@ -809,13 +901,17 @@
   </style>
 </head>
 <body>
-  <!-- ======= Header ======= -->
-  <header id="header" class="d-flex align-items-center">
+  <header id="header" class="d-flex align-items: center">
     <div class="container d-flex align-items-center justify-content-between">
       <div class="logo-container">
+        <!-- Replaced local assets with placeholders for preview -->
         <img src="assets/header/IEEE-Logo-Photoroom.png" alt="IEEE Logo">
-        <img src="assets/header/IEEE-edu-socitey.png" alt="EdSoc Logo">
-        <img src="assets/header/young-professionals-logo-Photoroom.png" alt="YP Logo">
+        <img src="assets/header/Symbiosis_logo.png" alt="EdSoc Logo">
+        <img src="assets/header/Symbiosis_ieee.png" alt="YP Logo">
+        <img src="assets/header/ieee-comsoc.svg" alt="YP Logo">
+        <img src="assets/header/IEEE-AESS.png" alt="YP Logo">
+        <img src="assets/header/IEEE-edu-socitey.png" alt="YP Logo">
+        <img src="assets/header/vts-Photoroom.png" alt="YP Logo">
       </div>
       <nav id="navbar" class="navbar">
         <ul>
@@ -845,7 +941,7 @@
         <h6>IEEE Education Society Young Professional Adhoc Committee</h6>
         <h7>Hosted by</h7>
         <h6>IEEE Symbiosis Institute of Technology, Hyderabad Student Branch</h6>
-        <h5>7-8 November 2025</h5>
+        <h5>13-15 November 2025</h5>
       </div>
     </div>
   </section><!-- End Hero -->
@@ -900,62 +996,156 @@
          </div>
         <div class="row">
             <!-- Card items will be dynamically added here or listed manually -->
+             
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="card">
-                  <img src="https://placehold.co/400x250/555/fff?text=Honorary+Speakers" class="card-img-top" alt="...">
+                  <img src="https://placehold.co/400x250/555/fff?text=Microsoft+Workshop" class="card-img-top" alt="Microsoft Workshop">
                   <div class="card-body">
-                    <h5 class="card-title"><a href="">Honorary speakers</a></h5>
-                    <p class="card-text">Join us at IEEE Education Society Symposium for career connect, our luminant speakers ground breaking contributions will inspire.</p>
+                    <h5 class="card-title"><a href="#schedule">Microsoft Workshop</a></h5>
+                    <p class="card-text">Hands-on Workshop on Multimodal Agentic Framework with Mr. Ritish, Senior Designer at Microsoft AI.</p>
                   </div>
                 </div>
             </div>
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="card">
+              <img src="https://placehold.co/400x250/555/fff?text=Mujamdar" class="card-img-top" alt="Prof. S. B. Mujumdar">
+              <div class="card-body">
+                <h5 class="card-title"><a href="#schedule">Honorary Guest</a></h5>
+                <p class="card-text">Prof. (Dr.) S. B. Mujumdar, Founder & President, Symbiosis; Padma Bhushan & Padma Shri Awardee.</p>
+              </div>
+            </div>
+          </div>
+          <!-- =========================
+     Inaugural Ceremony Guests - Day 1
+     ========================= -->
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="100">
+              <div class="card">
+                <img src="https://placehold.co/400x250/555/fff?text=Prof.+S.B.+Mujumdar" class="card-img-top" alt="Prof. S. B. Mujumdar">
+                <div class="card-body">
+                  <h5 class="card-title"><a href="#schedule">Honorary Guest</a></h5>
+                  <p class="card-text">Prof. (Dr.) S. B. Mujumdar, Founder & President, Symbiosis; Padma Bhushan & Padma Shri Awardee.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="150">
+              <div class="card">
+                <img src="https://placehold.co/400x250/666/fff?text=Dr.+Ramakrishnan+Raman" class="card-img-top" alt="Dr. Ramakrishnan Raman">
+                <div class="card-body">
+                  <h5 class="card-title"><a href="#schedule">Guest</a></h5>
+                  <p class="card-text">Dr. Ramakrishnan Raman, Vice Chancellor, Symbiosis International (Deemed University).</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="200">
+              <div class="card">
+                <img src="https://placehold.co/400x250/777/fff?text=Chief+Guests" class="card-img-top" alt="Chief Guests">
+                <div class="card-body">
+                  <h5 class="card-title"><a href="#schedule">Chief Guests</a></h5>
+                  <p class="card-text">Dr. Prakash Chauhan, Director, NRSC (ISRO) and Mr. Sanjay Sehgal, Chairman & CEO, Aziro.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="250">
+              <div class="card">
+                <img src="https://placehold.co/400x250/888/fff?text=Dr.+Antonio+Luque" class="card-img-top" alt="Dr. Antonio Luque">
+                <div class="card-body">
+                  <h5 class="card-title"><a href="#schedule">Presidential Address</a></h5>
+                  <p class="card-text">Dr. Antonio Luque, Vice President (MGA), IEEE.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="350">
+              <div class="card">
+                <img src="https://placehold.co/400x250/999/fff?text=Mr.+Srinivasulu+Jella" class="card-img-top" alt="Mr. Srinivasulu Jella">
+                <div class="card-body">
+                  <h5 class="card-title"><a href="#schedule">Guest of Honour</a></h5>
+                  <p class="card-text">Mr. Srinivasulu Jella, Scientist & Head NSRC, ISRO.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="350">
+              <div class="card">
+                <img src="https://placehold.co/400x250/aaa/fff?text=Prof.+Ranga+Rao+V.+Prasad" class="card-img-top" alt="Prof. Ranga Rao Venkatesha Prasad">
+                <div class="card-body">
+                  <h5 class="card-title"><a href="#schedule">Invited Guest</a></h5>
+                  <p class="card-text">Prof. Ranga Rao Venkatesha Prasad, Associate Professor, TU Delft, Netherlands; Director, Member Services Board, IEEE ComSoc.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="400">
+              <div class="card">
+                <img src="https://placehold.co/400x250/bbb/fff?text=Special+Guests" class="card-img-top" alt="Special Guests">
+                <div class="card-body">
+                  <h5 class="card-title"><a href="#schedule">Special Guests</a></h5>
+                  <p class="card-text">MGPL Narayana (Chair, IEEE Hyderabad Section), Prof. Rajanikanth Aluvalu, Prof. Sunil George, and Prof. Venu Gopal.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="450">
+              <div class="card">
+                <img src="https://placehold.co/400x250/ccc/000?text=IEEE+Celebrations" class="card-img-top" alt="IEEE Celebrations">
+                <div class="card-body">
+                  <h5 class="card-title"><a href="#schedule">Celebrations</a></h5>
+                  <p class="card-text">IEEE IES Day, 20th Anniversary of IEEE Systems Council, and 60th Anniversary of IEEE Photonics Society.</p>
+                </div>
+              </div>
+            </div>
+
             
              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="200">
                 <div class="card">
-                  <img src="https://placehold.co/400x250/555/fff?text=Presidential+Address" class="card-img-top" alt="...">
+                  <img src="https://placehold.co/400x250/555/fff?text=Cyber+Security" class="card-img-top" alt="Cyber Security Workshop">
                   <div class="card-body">
-                    <h5 class="card-title"><a href="">Presidential address</a></h5>
-                    <p class="card-text">Mr. Thomas M. Coughlin will share the vision for the future , priorities, collaborations that will connect the career.</p>
+                    <h5 class="card-title"><a href="#schedule">Cyber Security Essentials</a></h5>
+                    <p class="card-text">Join Dr. Sai Krishna, Senior Cyber Security Consultant at DSCI, for a workshop on cyber security essentials.</p>
                   </div>
                 </div>
             </div>
             
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="300">
                 <div class="card">
-                  <img src="https://placehold.co/400x250/555/fff?text=IEEE.TV" class="card-img-top" alt="...">
+                  <img src="https://placehold.co/400x250/555/fff?text=Kubernetes+Workshop" class="card-img-top" alt="Kubernetes Workshop">
                   <div class="card-body">
-                    <h5 class="card-title"><a href="">IEEE.TV</a></h5>
-                    <p class="card-text">A special talk on IEEE.tv featuring by renowned speaker Dr.Prasant R. Nair on Evolving and driving opportunities through IEEE.tv.</p>
+                    <h5 class="card-title"><a href="#schedule">Kubernetes Workshop</a></h5>
+                    <p class="card-text">Containers Made Simple: Build & Run Apps on Kubernetes like Amazon Shopping with Sourav Bera (Lloyds Bank).</p>
                   </div>
                 </div>
             </div>
             
              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="100">
                 <div class="card">
-                  <img src="https://placehold.co/400x250/555/fff?text=AESS+50+Years" class="card-img-top" alt="...">
+                  <img src="https://placehold.co/400x250/555/fff?text=AI+Agents" class="card-img-top" alt="AI Agents Workshop">
                   <div class="card-body">
-                    <h5 class="card-title"><a href="">Celebrating 50 Years of IEEE AESS</a></h5>
-                    <p class="card-text">A special event to celebrate the 50th anniversary of the IEEE Aerospace and Electronics Systems Society (AESS).</p>
+                    <h5 class="card-title"><a href="#schedule">AI Agents Workshop</a></h5>
+                    <p class="card-text">Beyond Chat: Building Eval-Driven AI Agents with Tezan, Software Engineer 2 at Microsoft.</p>
                   </div>
                 </div>
             </div>
             
             <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="200">
                 <div class="card">
-                  <img src="https://placehold.co/400x250/555/fff?text=Web+Dev+Workshop" class="card-img-top" alt="...">
+                  <img src="https://placehold.co/400x250/555/fff?text=Google+AI/ML" class="card-img-top" alt="Google AI/ML Workshop">
                   <div class="card-body">
-                    <h5 class="card-title"><a href="">Full Stack Web Development</a></h5>
-                    <p class="card-text">We are excited to introduce our Workshop Partner FastN, a leading provider of full stack web development training.</p>
+                    <h5 class="card-title"><a href="#schedule">Google AI & ML Applications</a></h5>
+                    <p class="card-text">Explore Google AI & ML Applications in a hands-on workshop with Mr. Anees Ahmed from Google AI, India.</p>
                   </div>
                 </div>
             </div>
             
              <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="300">
                 <div class="card">
-                  <img src="https://placehold.co/400x250/555/fff?text=Flutter+Workshop" class="card-img-top" alt="...">
+                  <img src="https://placehold.co/400x250/555/fff?text=Hackathon" class="card-img-top" alt="IEEE Hackathon">
                   <div class="card-body">
-                    <h5 class="card-title"><a href="">Hands on Workshop on Flutter</a></h5>
-                    <p class="card-text">Join with us for a Hands on Workshop on Flutter and it's Applications by our industry partner GDG Vizag.</p>
+                    <h5 class="card-title"><a href="#schedule">IEEE 12-Hour Hackathon</a></h5>
+                    <p class="card-text">Join our overnight coding event and showcase your skills in the IEEE 12-Hour Hackathon.</p>
                   </div>
                 </div>
             </div>
@@ -974,12 +1164,12 @@
         <div class="row">
           <div class="col-lg-4 col-md-6">
             <div class="member" data-aos="fade-up" data-aos-delay="100">
-              <div class="pic"><img src="https://placehold.co/200x200/ddd/333?text=Speaker" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/speakers/venkatesh.jpeg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Dr. Abraham Varughese</h4>
-                <span>Outstanding Scientist & Director Naval Science & Technological Laboratory, DRDO, Govt of India</span>
+                <h4>Prof. Ranga Rao Venkatesha Prasad</h4>
+                <span>TU Delft, Netherlands; Director, Member Services Board, IEEE ComSoc</span>
                 <div class="social">
-                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.linkedin.com/in/rvprasad/"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
             </div>
@@ -987,12 +1177,12 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="member" data-aos="fade-up" data-aos-delay="200">
-              <div class="pic"><img src="https://placehold.co/200x200/ddd/333?text=Speaker" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/speakers/reenadayal.jpeg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Santosh Kumar Balivada</h4>
-                <span>Guest of Honour, CEO - Centre for Additive Manufacturing, Visakhapatnam</span>
+                <h4>Ms. Reena Dayal</h4>
+                <span>IEEE CS Distinguished Speaker & CEO, QETCI</span>
                 <div class="social">
-                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.linkedin.com/in/reenadayal/?originalSubdomain=in"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
             </div>
@@ -1000,12 +1190,75 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="member" data-aos="fade-up" data-aos-delay="300">
-              <div class="pic"><img src="https://placehold.co/200x200/ddd/333?text=Speaker" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/speakers/prakash.jpeg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>John McDonald</h4>
-                <span>IEEE Life Fellow,President - IEEE Foundations</span>
+                <h4>Dr. Prakash Chauhan</h4>
+                <span>Director, NRSC, ISRO</span>
                 <div class="social">
-                  <a href="#"><i class="bi bi-linkedin"></i></a>
+                  <a href="https://www.linkedin.com/in/dr-prakash-chauhan-84330460/?originalSubdomain=in"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="member" data-aos="fade-up" data-aos-delay="100">
+              <div class="pic"><img src="assets/speakers/puneet.jpeg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Dr. Puneeth Mishra</h4>
+                <span>Vice President (IEEE AESS) & Principal Scientist, ISRO</span>
+                <div class="social">
+                  <a href="https://www.linkedin.com/in/puneet-kumar-mishra-252aba5/?originalSubdomain=in"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="member" data-aos="fade-up" data-aos-delay="200">
+              <div class="pic"><img src="assets/speakers/arun.jpeg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Mr. Arun Tanksali</h4>
+                <span>CTO, Fintech & Treasurer, IEEE TEMS</span>
+                <div class="social">
+                  <a href="https://www.linkedin.com/in/aruntanksali/?originalSubdomain=in"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6">
+            <div class="member" data-aos="fade-up" data-aos-delay="300">
+              <div class="pic"><img src="assets/speakers/ritesh.jpeg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Mr. Ritish</h4>
+                <span>Senior Designer, Microsoft AI</span>
+                <div class="social">
+                  <a href="https://www.linkedin.com/in/ritesh-kumar-81587025/?originalSubdomain=in"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="member" data-aos="fade-up" data-aos-delay="300">
+              <div class="pic"><img src="assets/speakers/krishna.jpeg" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Dr. Sai Krishna</h4>
+                <span>Senior Cyber Security Consultant, DSCI</span>
+                <div class="social">
+                  <a href="https://www.linkedin.com/in/sksai/?originalSubdomain=in"><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="member" data-aos="fade-up" data-aos-delay="300">
+              <div class="pic"><img src="assets/speakers/s" class="img-fluid" alt=""></div>
+              <div class="member-info">
+                <h4>Mr. Sourav Bera</h4>
+                <span>Senior DevOps Engineer, Lloyds Bank; Ex-Microsoft</span>
+                <div class="social">
+                  <a href="https://www.linkedin.com/in/zeo-shark/?originalSubdomain=in"><i class="bi bi-linkedin"></i></a>
                 </div>
               </div>
             </div>
@@ -1025,67 +1278,203 @@
 
             <ul class="nav nav-tabs" role="tablist" data-aos="fade-up" data-aos-delay="100">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#day-1" role="tab" data-bs-toggle="tab">Nov 7th</a>
+                    <a class="nav-link active" href="#day-1" role="tab" data-bs-toggle="tab">Nov 14th</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#day-2" role="tab" data-bs-toggle="tab">Nov 8th</a>
+                    <a class="nav-link" href="#day-2" role="tab" data-bs-toggle="tab">Nov 15th</a>
                 </li>
                  <li class="nav-item">
-                    <a class="nav-link" href="#day-3" role="tab" data-bs-toggle="tab">Nov 9th</a>
+                    <a class="nav-link" href="#day-3" role="tab" data-bs-toggle="tab">Nov 16th</a>
                 </li>
             </ul>
             
             <div class="tab-content row justify-content-center" data-aos="fade-up" data-aos-delay="200">
                 <!-- Schedule Day 1 -->
                 <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="day-1">
-                     <h3 class="sub-heading"><b>IEEE Education Society Symposium 2023 <br> Venue : Main Auditorium</b> </h3>
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>08:00 AM</time></div>
-                        <div class="col-md-10"><h4>Registrations</h4></div>
-                    </div>
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>09:30 AM</time></div>
-                        <div class="col-md-10"><h4>Inaugural of IEEE Leadership Summit</h4></div>
-                    </div>
-                     <div class="row schedule-item">
-                        <div class="col-md-2"><time>01:00 PM</time></div>
-                        <div class="col-md-10"><h4>Lunch + IEEE DAY CELEBRATIONS</h4></div>
-                    </div>
-                     <div class="row schedule-item">
-                        <div class="col-md-2"><time>05:00 PM</time></div>
-                        <div class="col-md-10"><h4>End of Event - Day 1</h4></div>
-                    </div>
+                     <h3 class="sub-heading"><b>IEEE Leadership Summit & IEEE Com Connect 2025 <br> Venue : Main Auditorium</b> </h3>
+                    <div class="schedule-item">
+    <div><time>08:00 AM - 09:45 AM</time></div>
+    <div><h4>Registrations</h4></div>
+  </div>
+
+  <div class="schedule-item">
+    <div><time>09:45 AM - 10:00 AM</time></div>
+    <div><h4>IEEE IES Day 2025 Plantation Program</h4></div>
+  </div>
+
+  <div class="schedule-item">
+    <div><time>10:00 AM - 11:30 AM</time></div>
+    <div>
+      <h4>Inaugural Ceremony - IEEE Leadership Summit & IEEE COMSOC Student Tech Conference: IEEE Com Connect 2025</h4>
+      <p><strong>Theme:</strong> Bridging Innovation & Impact through Communication Tech</p>
+      <ul>
+        <li><strong>Honorary Guest:</strong> Prof. (Dr.) S. B. Mujumdar (Founder & President, Symbiosis; Padma Bhushan & Padma Shri Awardee)</li>
+        <li><strong>Guest:</strong> Dr. Ramakrishnan Raman (Vice Chancellor, Symbiosis International University)</li>
+        <li><strong>Chief Guests:</strong> Dr. Prakash Chauhan (Director, NRSC, ISRO) & Mr. Sanjay Sehgal (Chairman & CEO, Aziro)</li>
+        <li><strong>Presidential Address:</strong> Dr. Antonio Luque (Vice President, MGA, IEEE)</li>
+        <li><strong>Guests of Honour:</strong> Mr. Srinivasulu Jella (Scientist & Head NSRC, ISRO)</li>
+        <li><strong>Invited Guest:</strong> Prof. Ranga Rao Venkatesha Prasad (TU Delft, Netherlands; Director, Member Services Board, IEEE ComSoc)</li>
+        <li><strong>Special Guests:</strong> MGPL Narayana (Chair, IEEE Hyderabad Section), Prof. Rajanikanth Aluvalu, Prof. Sunil George, Prof. Venu Gopal</li>
+        <li><strong>Celebrations:</strong> IEEE IES Day, 20th Anniversary – IEEE Systems Council, 60th Anniversary – IEEE Photonics Society</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="schedule-item">
+    <div><time>11:30 AM - 11:50 AM</time></div>
+    <div><h4>High Tea</h4></div>
+  </div>
+
+  <div class="schedule-item">
+    <div><time>11:50 AM - 12:50 PM</time></div>
+    <div>
+      <h4>Plenary Talk: Potential for Innovation</h4>
+      <p><strong>Speaker:</strong> Prof. Ranga Rao Venkatesha Prasad</p>
+    </div>
+  </div>
+
+  <div class="schedule-item">
+    <div><time>12:50 PM - 01:00 PM</time></div>
+    <div>
+      <h4>Distinguished Talk</h4>
+      <p><strong>Speaker:</strong> Ms. Reena Dayal (IEEE CS Distinguished Speaker & CEO, QETCI)</p>
+    </div>
+  </div>
+
+  <div class="schedule-item">
+    <div><time>01:00 PM - 02:00 PM</time></div>
+    <div><h4>Networking Lunch</h4></div>
+  </div>
+
+  <div class="schedule-item">
+    <div><time>02:00 PM - 03:00 PM</time></div>
+    <div>
+      <h4>IEEE Students Competition & Networking</h4>
+      <p>Parallel Tracks:</p>
+      <ul>
+        <li>Global Hack (Ideathon Presentation)</li>
+        <li>IEEE Chapters Poster Showcase</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="schedule-item">
+    <div><time>03:00 PM - 03:20 PM</time></div>
+    <div><h4>IEEE Professional Communications Society Track</h4></div>
+  </div>
+
+  <div class="schedule-item">
+    <div><time>03:20 PM - 03:40 PM</time></div>
+    <div><h4>IEEE VTS Track</h4></div>
+  </div>
+
+  <div class="schedule-item">
+    <div><time>03:40 PM - 04:20 PM</time></div>
+    <div>
+      <h4>Talk by Mr. Sravan Banda</h4>
+      <p><strong>Speaker:</strong> Director, BlueDrop Enviro Pvt. Ltd</p>
+    </div>
+  </div>
+
+  <div class="schedule-item">
+    <div><time>04:20 PM - 05:00 PM</time></div>
+    <div><h4>Special Track - IEEE Signal Processing Society</h4></div>
+  </div>
+
+  <div class="schedule-item">
+    <div><time>05:00 PM</time></div>
+    <div><h4>Departure - Buses leave campus</h4></div>
+  </div>
                 </div>
                 <!-- End Schedule Day 1 -->
                 
                  <!-- Schedule Day 2 -->
                 <div role="tabpanel" class="col-lg-9 tab-pane fade" id="day-2">
-                     <h3 class="sub-heading"><b>IEEE Education Society Career Connect Program <br> Venue: Auditorium</b></h3>
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>09:00 AM</time></div>
-                        <div class="col-md-10"><h4>Talk by Mr. Sabarinath G Pillai</h4></div>
+                     <h3 class="sub-heading"><b>Hands-on Workshops & Networking <br> Venue: Parallel Labs</b></h3>
+                    <div class="schedule-item">
+                        <div><time>09:00 AM - 01:00 PM</time></div>
+                        <div>
+                          <h4>Hands-on Workshops (Parallel Labs)</h4>
+                          <ul>
+                            <li><strong>Lab 1:</strong> Microsoft Workshop on Multimodal Agentic Framework — Mr. Ritish (Senior Designer, Microsoft AI)</li>
+                            <li><strong>Lab 2:</strong> Cyber Security Essentials — Dr. Sai Krishna (Senior Cyber Security Consultant, DSCI)</li>
+                            <li><strong>Lab 3:</strong> Containers Made Simple: Build & Run Apps on Kubernetes — Sourav Bera (Senior DevOps Engineer, Lloyds Bank)</li>
+                            <li><strong>Lab 4:</strong> Beyond Chat: Building Eval-Driven AI Agents — Tezan (Software Engineer 2, Microsoft)</li>
+                            <li><strong>Lab 5:</strong> Google AI & ML Applications — Mr. Anees Ahmed (Google AI, India)</li>
+                          </ul>
+                        </div>
                     </div>
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>10:00 AM</time></div>
-                        <div class="col-md-10"><h4>Parallel Workshops & Talks</h4></div>
+                    <div class="schedule-item">
+                        <div><time>01:00 PM - 02:00 PM</time></div>
+                        <div><h4>Networking Lunch</h4></div>
                     </div>
-                     <div class="row schedule-item">
-                        <div class="col-md-2"><time>01:00 PM</time></div>
-                        <div class="col-md-10"><h4>Lunch</h4></div>
+                     <div class="schedule-item">
+                        <div><time>02:00 PM - 05:00 PM</time></div>
+                        <div><h4>Continuation – Hands-on Workshops</h4></div>
                     </div>
-                     <div class="row schedule-item">
-                        <div class="col-md-2"><time>06:00 PM</time></div>
-                        <div class="col-md-10"><h4>DJ Night & Camp Fire</h4></div>
+                     <div class="schedule-item">
+                        <div><time>05:00 PM - 05:30 PM</time></div>
+                        <div><h4>Networking Activities</h4></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div><time>05:30 PM - 06:30 PM</time></div>
+                        <div><h4>Cultural Performances</h4></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div><time>06:30 PM - 07:30 PM</time></div>
+                        <div><h4>DJ Night & Campfire Celebrations</h4></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div><time>07:30 PM - 08:30 PM</time></div>
+                        <div><h4>Gala Dinner</h4></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div><time>08:30 PM</time></div>
+                        <div><h4>Departure - Buses leave campus</h4></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div><time>09:00 PM - 09:00 AM (Next Day)</time></div>
+                        <div><h4>IEEE 12-Hour Hackathon</h4> <p>Overnight Coding Event</p></div>
                     </div>
                 </div>
                 <!-- End Schedule Day 2 -->
 
                 <!-- Schedule Day 3 -->
                 <div role="tabpanel" class="col-lg-9 tab-pane fade" id="day-3">
-                    <h3 class="sub-heading"><b>Industrial Visit to Andhra Pradesh Medtech Zone</b></h3>
-                    <div class="row schedule-item">
-                        <div class="col-md-2"><time>09:00 AM - 04:00 PM</time></div>
-                        <div class="col-md-10"><h4>Visit and tour of the facilities.</h4></div>
+                    <h3 class="sub-heading"><b>Industrial Visit & Valedictory Ceremony</b></h3>
+                    <div class="schedule-item">
+                        <div><time>09:00 AM - 01:00 PM</time></div>
+                        <div><h4>Industrial Visit</h4> <p>Khana: Makers Space</p></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div><time>01:00 PM - 02:00 PM</time></div>
+                        <div><h4>Networking Lunch</h4></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div><time>02:00 PM - 02:45 PM</time></div>
+                        <div><h4>Talk by Dr. Puneeth Mishra</h4> <p>Vice President (IEEE AESS) & Principal Scientist, ISRO</p></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div><time>02:45 PM - 03:45 PM</time></div>
+                        <div><h4>Talk by Mr. Arun Tanksali</h4> <p>CTO, Fintech & Treasurer, IEEE TEMS</p></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div><time>03:45 PM - 04:45 PM</time></div>
+                        <div>
+                          <h4>Valedictory Ceremony</h4>
+                          <ul>
+                            <li><strong>Guests:</strong> Dr. Puneeth Mishra, Mr. Arun Tanksali, Mr. Bala Prasad Peddigari (Vice Chair, IEEE Hyderabad Section), Mr. Sreenivas Jasti (Treasurer, IEEE Hyderabad Section), Prof. Rajanikanth Aluvalu</li>
+                            <li><strong>Activities:</strong> Winners Announcements, Certificate Distribution</li>
+                          </ul>
+                        </div>
+                    </div>
+                    <div class="schedule-item">
+                        <div><time>04:45 PM - 04:55 PM</time></div>
+                        <div><h4>Group Photo</h4></div>
+                    </div>
+                    <div class="schedule-item">
+                        <div><time>05:00 PM</time></div>
+                        <div><h4>Departure - Buses leave campus</h4></div>
                     </div>
                 </div>
                  <!-- End Schedule Day 3 -->
@@ -1098,53 +1487,31 @@
       <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h2>Team</h2>
-          <p>Education Society Young Professionals Team</p>
+          <p>Summit Chairs</p>
         </div>
         <div class="row">
           <div class="col-lg-3 col-md-6">
             <div class="member" data-aos="fade-up" data-aos-delay="100">
-              <div class="pic"><img src="https://placehold.co/200x200/ddd/333?text=Team" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/faculity/rajinikanth.jpeg" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Sai Prashanth M</h4>
-                <span>Young Professionals Representative</span>
-                <div class="social"><a href="#"><i class="bi bi-linkedin"></i></a></div>
+                <h4>General Chair:Prof. Rajanikanth Aluvalu</h4>
+                <span>Director Symbiosis Institue of technology, Hyderanad</span>
+                <div class="social"><a href="https://www.linkedin.com/in/prof-rajanikanth-aluvalu-26928014/?originalSubdomain=in"><i class="bi bi-linkedin"></i></a></div>
               </div>
             </div>
           </div>
 
           <div class="col-lg-3 col-md-6">
             <div class="member" data-aos="fade-up" data-aos-delay="200">
-              <div class="pic"><img src="https://placehold.co/200x200/ddd/333?text=Team" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/faculity/prashanth.jpeg"class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Ayisha E A</h4>
-                <span>Secretary, Young Professional Adhoc Committee</span>
-                <div class="social"><a href="#"><i class="bi bi-linkedin"></i></a></div>
+                <h4>General Co-Chair: Mr. Sai Prashanth Mallellu</h4>
+                <span>Head - Student Affairs & Adjunct Faculty,</span>
+                <div class="social"><a href="https://www.linkedin.com/in/sai-prashanth-mallellu-bab491196/?originalSubdomain=in"><i class="bi bi-linkedin"></i></a></div>
               </div>
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-6">
-            <div class="member" data-aos="fade-up" data-aos-delay="300">
-              <div class="pic"><img src="https://placehold.co/200x200/ddd/333?text=Team" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Mohammed Khalid</h4>
-                <span>Treasurer, Young Professional Adhoc Committee</span>
-                <div class="social"><a href="#"><i class="bi bi-linkedin"></i></a></div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-3 col-md-6">
-            <div class="member" data-aos="fade-up" data-aos-delay="400">
-              <div class="pic"><img src="https://placehold.co/200x200/ddd/333?text=Team" class="img-fluid" alt=""></div>
-              <div class="member-info">
-                <h4>Guntur Renu</h4>
-                <span>Vice Chair - Professional Activities & Strategies</span>
-                <div class="social"><a href="#"><i class="bi bi-linkedin"></i></a></div>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <div class="section-title mt-5">
           <p>Faculty Coordinators</p>
@@ -1160,6 +1527,47 @@
             <div class="member" data-aos="fade-up" data-aos-delay="200">
               <div class="pic"><img src="https://placehold.co/200x200/ddd/333?text=Faculty" class="img-fluid" alt=""></div>
               <div class="member-info"><h4>Faculty Coordinator 2</h4><span>Position</span><div class="social"><a href="#"><i class="bi bi-linkedin"></i></a></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="section-title mt-5">
+          <p>Adminstartion</p>
+        </div>
+        <div class="row justify-content-center">
+           <div class="col-lg-3 col-md-6">
+            <div class="member" data-aos="fade-up" data-aos-delay="100">
+              <div class="pic"><img src="https://placehold.co/200x200/ddd/333?text=Faculty" class="img-fluid" alt=""></div>
+              <div class="member-info"><h4>Faculty Coordinator 1</h4><span>Position</span><div class="social"><a href="#"><i class="bi bi-linkedin"></i></a></div></div>
+            </div>
+          </div>
+           <div class="col-lg-3 col-md-6">
+            <div class="member" data-aos="fade-up" data-aos-delay="200">
+              <div class="pic"><img src="https://placehold.co/200x200/ddd/333?text=Faculty" class="img-fluid" alt=""></div>
+              <div class="member-info"><h4>Faculty Coordinator 2</h4><span>Position</span><div class="social"><a href="#"><i class="bi bi-linkedin"></i></a></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="section-title mt-5">
+          <p>organization Team</p>
+        </div>
+        <div class="row justify-content-center">
+           <div class="col-lg-3 col-md-6">
+            <div class="member" data-aos="fade-up" data-aos-delay="100">
+              <div class="pic"><img src="https://placehold.co/200x200/ddd/333?text=Faculty" class="img-fluid" alt=""></div>
+              <div class="member-info"><h4>Venkatesh k</h4><span>Position</span><div class="social"><a href="#"><i class="bi bi-linkedin"></i></a></div></div>
+            </div>
+          </div>
+           <div class="col-lg-3 col-md-6">
+            <div class="member" data-aos="fade-up" data-aos-delay="200">
+              <div class="pic"><img src="https://placehold.co/200x200/ddd/333?text=Faculty" class="img-fluid" alt=""></div>
+              <div class="member-info"><h4>srichran</h4><span>Position</span><div class="social"><a href="#"><i class="bi bi-linkedin"></i></a></div></div>
+            </div>
+          </div>
+          </div>
+           <div class="col-lg-3 col-md-6">
+            <div class="member" data-aos="fade-up" data-aos-delay="200">
+              <div class="pic"><img src="https://placehold.co/200x200/ddd/333?text=Faculty" class="img-fluid" alt=""></div>
+              <div class="member-info"><h4>srujana</h4><span>Position</span><div class="social"><a href="#"><i class="bi bi-linkedin"></i></a></div></div>
             </div>
           </div>
         </div>
@@ -1207,22 +1615,22 @@
         <div class="row no-gutters supporters-wrap clearfix" data-aos="zoom-in" data-aos-delay="100">
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="assets/sponsers/ieee-education-society.png" class="img-fluid" alt="">
+              <img src="httpss://placehold.co/200x80/ffffff/000?text=Sponsor" class="img-fluid" alt="">
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="assets/sponsers/ieee-young-progessionals.jpg" class="img-fluid" alt="">
+              <img src="httpss://placehold.co/200x80/ffffff/000?text=Sponsor" class="img-fluid" alt="">
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="assets/sponsers/ieee region 10.png" class="img-fluid" alt="">
+              <img src="httpss://placehold.co/200x80/ffffff/000?text=Sponsor" class="img-fluid" alt="">
             </div>
           </div>
            <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="assets/sponsers/ieee-region-10-student.png" class="img-fluid" alt="">
+              <img src="httpss://placehold.co/200x80/ffffff/000?text=Sponsor" class="img-fluid" alt="">
             </div>
           </div>
         </div>
@@ -1233,17 +1641,17 @@
          <div class="row no-gutters supporters-wrap clearfix" data-aos="zoom-in" data-aos-delay="100">
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="assets/sponsers/hyderabad-section.png" class="img-fluid" alt="">
+              <img src="httpss://placehold.co/200x80/ffffff/000?text=Sponsor" class="img-fluid" alt="">
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="assets/sponsers/futurenetworks.jpg" class="img-fluid" alt="">
+              <img src="httpss://placehold.co/200x80/ffffff/000?text=Sponsor" class="img-fluid" alt="">
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="assets/sponsers/ComSoc.png" class="img-fluid" alt="">
+              <img src="httpss://placehold.co/200x80/ffffff/000?text=Sponsor" class="img-fluid" alt="">
             </div>
           </div>
         </div>
@@ -1254,7 +1662,7 @@
          <div class="row no-gutters supporters-wrap clearfix" data-aos="zoom-in" data-aos-delay="100">
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="assets/sponsers/Symbiosys.png" class="img-fluid" alt="">
+              <img src="httpsSetting up fake paths from 'assets/sponsers/...' to 'httpss://placehold.co/200x80/ffffff/000?text=Sponsor'./sponsers/Symbiosys.png" class="img-fluid" alt="">
             </div>
           </div>
         </div>
@@ -1265,27 +1673,27 @@
          <div class="row no-gutters supporters-wrap clearfix" data-aos="zoom-in" data-aos-delay="100">
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="assets/sponsers/ieeecb.png" class="img-fluid" alt="">
+              <img src="httpsAdding placeholder for assets/sponsers/ieeecb.png" class="img-fluid" alt="">
             </div>
           </div>
            <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="assets/sponsers/puzzlers.jpeg" class="img-fluid" alt="">
+              <img src="httpss://placehold.co/200x80/ffffff/000?text=Sponsor" class="img-fluid" alt="">
             </div>
           </div>
         <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="assets/sponsers/sps.jpg" class="img-fluid" alt="">
+              <img src="httpss://placehold.co/200x80/ffffff/000?text=Sponsor" class="img-fluid" alt="">
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="assets/sponsers/vts.png" class="img-fluid" alt="">
+              <img src="httpss://placehold.co/200x80/ffffff/000?text=Sponsor" class="img-fluid" alt="">
             </div>
           </div>
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="assets/sponsers/ieeetv.png" class="img-fluid" alt="">
+              <img src="httpss://placehold.co/200x80/ffffff/000?text=Sponsor" class="img-fluid" alt="">
             </div>
           </div>
           </div>
@@ -1320,7 +1728,7 @@
                     <div class="card2 text-center">
                         <h3>Register Now</h3>
                         <p>Secure your spot at the premier leadership event of the year. Join us for insightful sessions, networking, and more!</p>
-                        <a href="#" class="btn btn-primary" style="background-color: #ff6600; border-color: #ff6600; padding: 15px 40px; font-size: 18px; border-radius: 50px; text-transform: uppercase; font-weight: 600; letter-spacing: 1px;">Register Now</a>
+                        <a href="https://forms.gle/dxkKYt4y1BC5x4UU7" class="btn btn-primary" style="background-color: #ff6600; border-color: #ff6600; padding: 15px 40px; font-size: 18px; border-radius: 50px; text-transform: uppercase; font-weight: 600; letter-spacing: 1px;">Register Now</a>
                     </div>
                 </div>
             </div>
@@ -1581,6 +1989,12 @@
 
 </body>
 </html>
+
+
+
+
+
+
 
 
 
