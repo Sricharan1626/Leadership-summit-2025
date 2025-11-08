@@ -2322,6 +2322,106 @@
     tabList.removeChild(tabList.children[2]); // Remove Nov 16 tab
     tabPanes.removeChild(tabPanes.children[2]); // Remove Nov 16 content
 
+    // Re-initialize Bootstrap tabs
+    const tabs = scheduleSection.querySelectorAll('.nav-tabs .nav-link');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1); // Remove # from href
+        const target = scheduleSection.querySelector(`#${targetId}`);
+        
+        if (target) {
+          // Remove active class from all tabs and panes
+          tabs.forEach(t => t.classList.remove('active'));
+          scheduleSection.querySelectorAll('.tab-pane').forEach(p => {
+            p.classList.remove('show', 'active');
+          });
+          
+          // Add active class to clicked tab and its corresponding pane
+          this.classList.add('active');
+          target.classList.add('show', 'active');
+        }
+      });
+    });
+
+    // Update Nov 15 content for CommConnect
+    const nov15Content = tabPanes.children[1];
+    nov15Content.innerHTML = `
+      <h3 class="sub-heading"><b>IEEE Leadership Summit & IEEE Com Connect 2025<br>Venue: Parallel Labs</b></h3>
+
+<div class="schedule-item">
+  <div><time>09:00 AM - 01:00 PM</time></div>
+  <div>
+    <h4>Hands-on Workshops (Parallel Labs)</h4>
+    <ul>
+      <li><strong>Lab 1:</strong> Microsoft Workshop on Multimodal Agentic Framework — Mr. Ritish (Senior Designer, Microsoft AI)</li>
+      <li><strong>Lab 2:</strong> Cyber Security Essentials — Dr. Sai Krishna (Senior Cyber Security Consultant, DSCI)</li>
+      <li><strong>Lab 3:</strong> Containers Made Simple: Build & Run Apps on Kubernetes — Sourav Bera (Senior DevOps Engineer, Lloyds Bank)</li>
+      <li><strong>Lab 4:</strong> Beyond Chat: Building Eval-Driven AI Agents — Tezan (Software Engineer 2, Microsoft)</li>
+      <li><strong>Lab 5:</strong> Google AI & ML Applications — Mr. Anees Ahmed (Google AI, India)</li>
+    </ul>
+  </div>
+</div>
+
+<div class="schedule-item">
+  <div><time>01:00 PM - 02:00 PM</time></div>
+  <div>
+    <h4>Networking Lunch</h4>
+  </div>
+</div>
+
+<div class="schedule-item">
+  <div><time>02:00 PM - 05:00 PM</time></div>
+  <div>
+    <h4>Continuation – Hands-on Workshops</h4>
+  </div>
+</div>
+
+<div class="schedule-item">
+  <div><time>05:00 PM - 05:30 PM</time></div>
+  <div>
+    <h4>Networking Activities</h4>
+  </div>
+</div>
+
+<div class="schedule-item">
+  <div><time>05:30 PM - 06:30 PM</time></div>
+  <div>
+    <h4>Cultural Performances</h4>
+  </div>
+</div>
+
+<div class="schedule-item">
+  <div><time>06:30 PM - 07:30 PM</time></div>
+  <div>
+    <h4>DJ Night & Campfire Celebrations</h4>
+  </div>
+</div>
+
+<div class="schedule-item">
+  <div><time>07:30 PM - 08:30 PM</time></div>
+  <div>
+    <h4>Gala Dinner</h4>
+  </div>
+</div>
+
+<div class="schedule-item">
+  <div><time>08:30 PM</time></div>
+  <div>
+    <h4>Departure - Buses leave campus</h4>
+  </div>
+</div>
+
+<div class="schedule-item">
+  <div><time>09:00 PM - 09:00 AM (Next Day)</time></div>
+  <div>
+    <h4>IEEE 12-Hour Hackathon</h4>
+    <p>Overnight Coding Event</p>
+  </div>
+</div>
+
+    `;
+
     // Add content to CommConnect page
     commConnectPage.appendChild(backBtn);
     commConnectPage.appendChild(scheduleSection);
@@ -2331,7 +2431,7 @@
 
     // Smooth scroll and fade in
     window.scrollTo({
-      top: 100,
+      top: 500,
       behavior: 'smooth'
     });
 
