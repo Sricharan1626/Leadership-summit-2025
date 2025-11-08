@@ -210,6 +210,25 @@
     padding: 10px 15px; /* Adjust padding for centered look */
   }
 }
+#commConnectBtn {
+  background-color: #ff4500; /* Bright highlight color */
+  color: white;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 25px; /* Adds space from the nav links */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px 0 rgba(255, 69, 0, 0.4);
+}
+
+#commConnectBtn:hover {
+  background-color: #e03e00;
+  transform: translateY(-2px); /* Lifts the button slightly */
+  box-shadow: 0 6px 20px 0 rgba(255, 69, 0, 0.5);
+}
 
 
     /*--------------------------------------------------------------
@@ -702,7 +721,7 @@
     # Benefits Section
     --------------------------------------------------------------*/
     #services1 {
-      background: url("https://placehold.co/1920x1080/eeeeee/333333?text=Abstract+Background") no-repeat center center;
+      /*--background: url("https://placehold.co/1920x1080/eeeeee/333333?text=Abstract+Background") no-repeat center center;--*/
       background-size: cover;
       position: relative;
     }
@@ -925,8 +944,10 @@
           <li><a class="nav-link scrollto" href="#services1">Benefits</a></li>
           <li><a class="nav-link scrollto" href="#location">Location</a></li>
           <li><a class="nav-link scrollto" href="#footer">Contact us</a></li>
+          <button id="commConnectBtn">CommConnect</button>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
+        
       </nav><!-- .navbar -->
     </div>
   </header><!-- End Header -->
@@ -2187,11 +2208,124 @@
       });
 
     })();
+// Modify the CommConnect button handler
+  document.getElementById('commConnectBtn').addEventListener('click', function(e) {
+    e.preventDefault();
+    // Check if CommConnect page already exists
+    if (document.getElementById('commConnectPage')) {
+      return;
+    }
+
+    // Store current scroll position
+    const scrollPos = window.scrollY;
+
+    // Hide all sections using a container wrapper
+    const mainContent = document.querySelectorAll('#header, #main, #footer');
+    mainContent.forEach(element => {
+      element.style.display = 'none';
+    });
+
+    // Create new container for CommConnect content
+    const commConnectPage = document.createElement('div');
+    commConnectPage.id = 'commConnectPage';
+    commConnectPage.className = 'container mt-5';
+    commConnectPage.style.opacity = '0';
+    commConnectPage.style.transition = 'opacity 0.5s ease-in-out';
+
+    // Add back button at the top
+    const backBtn = document.createElement('button');
+    backBtn.textContent = 'Back to Main Site';
+    backBtn.className = 'btn btn-primary mb-4';
+    backBtn.style.backgroundColor = '#ff6600';
+    backBtn.style.borderColor = '#ff6600';
+
+    // Clone the schedule section
+    const scheduleSection = document.querySelector('#schedule').cloneNode(true);
+
+    // Modify schedule content for CommConnect
+    scheduleSection.querySelector('.section-title h2').textContent = 'IEEE Com Connect 2025';
+    scheduleSection.querySelector('.section-title p').textContent = 'Technical Program Schedule';
+
+    // Remove Nov 16 tab and content
+    const tabList = scheduleSection.querySelector('.nav-tabs');
+    const tabPanes = scheduleSection.querySelector('.tab-content');
+    tabList.removeChild(tabList.children[2]); // Remove Nov 16 tab
+    tabPanes.removeChild(tabPanes.children[2]); // Remove Nov 16 content
+
+    // Add content to CommConnect page
+    commConnectPage.appendChild(backBtn);
+    commConnectPage.appendChild(scheduleSection);
+
+    // Add CommConnect page to body
+    document.body.appendChild(commConnectPage);
+
+    // Smooth scroll and fade in
+    window.scrollTo({
+      top: 100,
+      behavior: 'smooth'
+    });
+
+    // Fade in the content
+    setTimeout(() => {
+      commConnectPage.style.opacity = '1';
+    }, 100);
+
+    // Handle back button click
+    backBtn.onclick = function() {
+      // Fade out
+      commConnectPage.style.opacity = '0';
+
+      setTimeout(() => {
+      const mainContent = document.querySelectorAll('#header, #main, #footer');
+      mainContent.forEach(element => {
+        element.style.display = '';
+      });
+      commConnectPage.remove();
+
+      // Smooth scroll back to previous position
+      window.scrollTo({
+        top: scrollPos,
+        behavior: 'smooth'
+      });
+      }, 500);
+    };
+
+    // Handle header nav links while on CommConnect page
+    document.querySelectorAll('#header .navbar .scrollto').forEach(link => {
+      link.addEventListener('click', function(ev) {
+      ev.preventDefault();
+      const target = this.getAttribute('href');
+      // Fade out CommConnect page
+      commConnectPage.style.opacity = '0';
+      setTimeout(() => {
+        commConnectPage.remove();
+        mainContent.forEach(element => {
+        element.style.display = '';
+        });
+        // Scroll to the section
+        if (target && document.querySelector(target)) {
+        // Wait for main content to be visible before scrolling
+        setTimeout(() => {
+          const header = document.querySelector('#header');
+          const offset = header ? header.offsetHeight : 0;
+          const sectionTop = document.querySelector(target).offsetTop;
+          window.scrollTo({
+          top: sectionTop - offset,
+          behavior: 'smooth'
+          });
+        }, 50);
+        }
+      }, 500);
+      });
+    });
+  });
+    
+  
+
   </script>
 
 </body>
 </html>
-
 
 
 
