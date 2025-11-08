@@ -489,8 +489,9 @@
       border-radius: 10px;
       padding: 30px;
       text-align: center;
+      width: 100%;
       transition: all 0.3s ease-in-out;
-      height: 100%;
+      height: 500px;
     }
 
     .about-boxes .card:hover {
@@ -501,7 +502,24 @@
     .about-boxes .card-img-top {
       border-radius: 8px;
       margin-bottom: 20px;
+      width: 100%;
+      height: 100%;           /* fixed height that fits your design */
+      object-fit: fill; 
+            /* fills space without distortion */
+      object-position: center; /* keeps subject centered */
     }
+    .about-boxes .card-img-top-1 {
+    display: block;
+    margin: 0 auto;
+    border-radius: 8px;
+    width: 80%;
+    height: 100%;
+    max-height: 100%;        /* ensures it stays inside the card */
+    object-fit: contain;     /* keeps full image visible without distortion */
+    object-position: center; /* centers image vertically & horizontally */
+   }
+
+
 
     .about-boxes .card-title a {
       font-weight: 700;
@@ -992,16 +1010,14 @@
             
             <h4><b>About Leadership Summit 2025</b></h4>
             <p>
-              IEEE Education Society YP Committee aims to carry out a series of events that has 
-              been designed for both IEEE members and others through an Event 
-              named “IEEE Education Society Leadership Summit 2025”.
+              IEEE Symbiosis Institute of Technology Hyderabad aims to carry out a series of events that has been designed for both IEEE members and others through an Event named “IEEE Leadership Summit 2025.
             </p>
             <p>
               Goals and impact which are being successfully implemented:
               <ul>
-                <li>• young volunteers sense of belonging to IEEE Education Society, and sense of recognition.</li>
+                <li>• young volunteers sense of belonging to IEEE, and sense of recognition.</li>
                 <li>• Improve activity reporting and increase visibility of events and programs.</li>
-                <li>• Understand engagement level of Young Professionals in IEEE and IEEE Education Society</li>
+                <li>• Understand engagement level of Young Professionals in IEEE</li>
               </ul>
             </p>
           </div>
@@ -1016,152 +1032,97 @@
               <h3 class="text-white">Our Activities</h3>
          </div>
         <div class="row">
-            <!-- Card items will be dynamically added here or listed manually -->
-             
             
-            
-          <!-- =========================
-     Inaugural Ceremony Guests - Day 1
-     ========================= -->
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-6 col-md-12 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="100">
               <div class="card">
-                <img src="https://placehold.co/400x250/555/fff?text=Prof.+S.B.+Mujumdar" class="card-img-top" alt="Prof. S. B. Mujumdar">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="#schedule">Honorary Guest</a></h5>
-                  <p class="card-text">Prof. (Dr.) S. B. Mujumdar, Founder & President, Symbiosis; Padma Bhushan & Padma Shri Awardee.</p>
-                </div>
+                <img src="assets/posters/1.jpg" class="card-img-top" alt="Prof. S. B. Mujumdar">
+                
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="150">
+            <div class="col-lg-6 col-md-12 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="150">
               <div class="card">
-                <img src="https://placehold.co/400x250/666/fff?text=Dr.+Ramakrishnan+Raman" class="card-img-top" alt="Dr. Ramakrishnan Raman">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="#schedule">Guest</a></h5>
-                  <p class="card-text">Dr. Ramakrishnan Raman, Vice Chancellor, Symbiosis International (Deemed University).</p>
-                </div>
+                <img src="assets/posters/2.jpg" class="card-img-top" alt="Dr. Ramakrishnan Raman">
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-6 col-md-12 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="150">
               <div class="card">
-                <img src="https://placehold.co/400x250/777/fff?text=Chief+Guests" class="card-img-top" alt="Chief Guests">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="#schedule">Chief Guests</a></h5>
-                  <p class="card-text">Dr. Prakash Chauhan, Director, NRSC (ISRO) and Mr. Sanjay Sehgal, Chairman & CEO, Aziro.</p>
-                </div>
+                <img src="assets/posters/3.jpg" class="card-img-top" alt="Dr. Ramakrishnan Raman">
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="250">
+            <div class="col-lg-6 col-md-12 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="150">
               <div class="card">
-                <img src="https://placehold.co/400x250/888/fff?text=Dr.+Antonio+Luque" class="card-img-top" alt="Dr. Antonio Luque">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="#schedule">Presidential Address</a></h5>
-                  <p class="card-text">Dr. Antonio Luque, Vice President (MGA), IEEE.</p>
-                </div>
+                <img src="assets/posters/4.jpg" class="card-img-top" alt="Dr. Ramakrishnan Raman">
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="350">
+            <div class="col-lg-6 col-md-12 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="150">
               <div class="card">
-                <img src="https://placehold.co/400x250/999/fff?text=Mr.+Srinivasulu+Jella" class="card-img-top" alt="Mr. Srinivasulu Jella">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="#schedule">Guest of Honour</a></h5>
-                  <p class="card-text">Mr. Srinivasulu Jella, Scientist & Head NSRC, ISRO.</p>
-                </div>
+                <img src="assets/posters/5.jpg" class="card-img-top" alt="Dr. Ramakrishnan Raman">
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="350">
+            <div class="col-lg-6 col-md-12 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="150">
               <div class="card">
-                <img src="https://placehold.co/400x250/aaa/fff?text=Prof.+Ranga+Rao+V.+Prasad" class="card-img-top" alt="Prof. Ranga Rao Venkatesha Prasad">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="#schedule">Invited Guest</a></h5>
-                  <p class="card-text">Prof. Ranga Rao Venkatesha Prasad, Associate Professor, TU Delft, Netherlands; Director, Member Services Board, IEEE ComSoc.</p>
-                </div>
+                <img src="assets/posters/6.jpg" class="card-img-top" alt="Dr. Ramakrishnan Raman">
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="col-lg-6 col-md-12 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="150">
               <div class="card">
-                <img src="https://placehold.co/400x250/bbb/fff?text=Special+Guests" class="card-img-top" alt="Special Guests">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="#schedule">Special Guests</a></h5>
-                  <p class="card-text">MGPL Narayana (Chair, IEEE Hyderabad Section), Prof. Rajanikanth Aluvalu, Prof. Sunil George, and Prof. Venu Gopal.</p>
-                </div>
+                <img src="assets/posters/7.jpg" class="card-img-top" alt="Dr. Ramakrishnan Raman">
               </div>
             </div>
 
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="450">
+            <div class="col-lg-6 col-md-12 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="150">
               <div class="card">
-                <img src="https://placehold.co/400x250/ccc/000?text=IEEE+Celebrations" class="card-img-top" alt="IEEE Celebrations">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="#schedule">Celebrations</a></h5>
-                  <p class="card-text">IEEE IES Day, 20th Anniversary of IEEE Systems Council, and 60th Anniversary of IEEE Photonics Society.</p>
-                </div>
+                <img src="assets/posters/8.jpg" class="card-img-top" alt="Dr. Ramakrishnan Raman">
               </div>
-            </div>
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="card">
-                  <img src="https://placehold.co/400x250/555/fff?text=Microsoft+Workshop" class="card-img-top" alt="Microsoft Workshop">
-                  <div class="card-body">
-                    <h5 class="card-title"><a href="#schedule">Microsoft Workshop</a></h5>
-                    <p class="card-text">Hands-on Workshop on Multimodal Agentic Framework with Mr. Ritish, Senior Designer at Microsoft AI.</p>
-                  </div>
-                </div>
-            </div>
-             <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="card">
-                  <img src="https://placehold.co/400x250/555/fff?text=Cyber+Security" class="card-img-top" alt="Cyber Security Workshop">
-                  <div class="card-body">
-                    <h5 class="card-title"><a href="#schedule">Cyber Security Essentials</a></h5>
-                    <p class="card-text">Join Dr. Sai Krishna, Senior Cyber Security Consultant at DSCI, for a workshop on cyber security essentials.</p>
-                  </div>
-                </div>
             </div>
             
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="card">
-                  <img src="https://placehold.co/400x250/555/fff?text=Kubernetes+Workshop" class="card-img-top" alt="Kubernetes Workshop">
-                  <div class="card-body">
-                    <h5 class="card-title"><a href="#schedule">Kubernetes Workshop</a></h5>
-                    <p class="card-text">Containers Made Simple: Build & Run Apps on Kubernetes like Amazon Shopping with Sourav Bera (Lloyds Bank).</p>
-                  </div>
-                </div>
+
+          <div class="col-lg-6 col-md-12 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="150">
+              <div class="card">
+                <img src="assets/posters/9.jpg" class="card-img-top" alt="Dr. Ramakrishnan Raman">
+              </div>
             </div>
-            
-             <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="card">
-                  <img src="https://placehold.co/400x250/555/fff?text=AI+Agents" class="card-img-top" alt="AI Agents Workshop">
-                  <div class="card-body">
-                    <h5 class="card-title"><a href="#schedule">AI Agents Workshop</a></h5>
-                    <p class="card-text">Beyond Chat: Building Eval-Driven AI Agents with Tezan, Software Engineer 2 at Microsoft.</p>
-                  </div>
-                </div>
+
+            <div class="col-lg-6 col-md-12 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="150">
+              <div class="card">
+                <img src="assets/posters/10.jpg" class="card-img-top-1" alt="Dr. Ramakrishnan Raman">
+              </div>
             </div>
-            
-            <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="card">
-                  <img src="https://placehold.co/400x250/555/fff?text=Google+AI/ML" class="card-img-top" alt="Google AI/ML Workshop">
-                  <div class="card-body">
-                    <h5 class="card-title"><a href="#schedule">Google AI & ML Applications</a></h5>
-                    <p class="card-text">Explore Google AI & ML Applications in a hands-on workshop with Mr. Anees Ahmed from Google AI, India.</p>
-                  </div>
-                </div>
+
+            <div class="col-lg-6 col-md-12 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="150">
+              <div class="card">
+                <img src="assets/posters/11.jpg" class="card-img-top-1" alt="Dr. Ramakrishnan Raman">
+              </div>
             </div>
-            
-             <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="card">
-                  <img src="https://placehold.co/400x250/555/fff?text=Hackathon" class="card-img-top" alt="IEEE Hackathon">
-                  <div class="card-body">
-                    <h5 class="card-title"><a href="#schedule">IEEE 12-Hour Hackathon</a></h5>
-                    <p class="card-text">Join our overnight coding event and showcase your skills in the IEEE 12-Hour Hackathon.</p>
-                  </div>
-                </div>
+
+            <div class="col-lg-6 col-md-12 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="150">
+              <div class="card">
+                <img src="assets/posters/12.jpg" class="card-img-top-1" alt="Dr. Ramakrishnan Raman">
+              </div>
             </div>
-            
+
+            <div class="col-lg-6 col-md-12 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="150">
+              <div class="card">
+                <img src="assets/posters/13.jpg" class="card-img-top-1" alt="Dr. Ramakrishnan Raman">
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="150">
+              <div class="card">
+                <img src="assets/posters/14.jpg" class="card-img-top-1" alt="Dr. Ramakrishnan Raman">
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12 d-flex align-items-stretch mb-4" data-aos="fade-up" data-aos-delay="150">
+              <div class="card">
+                <img src="assets/posters/15.jpg" class="card-img-top-1" alt="Dr. Ramakrishnan Raman">
+              </div>
+            </div>
         </div>
       </div>
     </section><!-- End Activities Section -->
@@ -1265,7 +1226,7 @@
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="member" data-aos="fade-up" data-aos-delay="300">
-              <div class="pic"><img src="assets/speakers/s" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="assets/speakers/sourav.jpeg" class="img-fluid" alt=""></div>
               <div class="member-info">
                 <h4>Mr. Sourav Bera</h4>
                 <span>Senior DevOps Engineer, Lloyds Bank; Ex-Microsoft</span>
@@ -2308,74 +2269,74 @@
       });
 
     })();
-// Modify the CommConnect button handler
-  document.getElementById('commConnectBtn').addEventListener('click', function(e) {
-    e.preventDefault();
-    // Check if CommConnect page already exists
-    if (document.getElementById('commConnectPage')) {
-      return;
-    }
+   document.getElementById('commConnectBtn').addEventListener('click', function (e) {
+  e.preventDefault();
 
-    // Store current scroll position
-    const scrollPos = window.scrollY;
+  // Check if CommConnect page already exists
+  if (document.getElementById('commConnectPage')) return;
 
-    // Hide all sections using a container wrapper
-    const mainContent = document.querySelectorAll('#header, #main, #footer');
-    mainContent.forEach(element => {
-      element.style.display = 'none';
+  const scrollPos = window.scrollY;
+
+  // Hide main sections
+  const mainContent = document.querySelectorAll('#header, #main, #footer');
+  mainContent.forEach(el => (el.style.display = 'none'));
+
+  // Create CommConnect container
+  const commConnectPage = document.createElement('div');
+  commConnectPage.id = 'commConnectPage';
+  commConnectPage.className = 'container-fluid mt-5';
+  commConnectPage.style.opacity = '0';
+  commConnectPage.style.transition = 'opacity 0.5s ease-in-out';
+
+  // Back button
+  const backBtn = document.createElement('button');
+  backBtn.textContent = 'Back to Main Site';
+  backBtn.className = 'btn btn-primary mb-4';
+  backBtn.style.backgroundColor = '#ff6600';
+  backBtn.style.borderColor = '#ff6600';
+  commConnectPage.appendChild(backBtn);
+
+  // Clone Activities section
+  const activitiesSection = document.querySelector('#about-boxes').cloneNode(true);
+  const activitiesTitle = activitiesSection.querySelector('.section-title h3');
+  if (activitiesTitle) {
+    activitiesTitle.textContent = 'Our Activities';
+    activitiesTitle.classList.add('text-dark');
+  }
+  commConnectPage.appendChild(activitiesSection);
+
+  // Clone and modify Schedule section
+  const scheduleSection = document.querySelector('#schedule').cloneNode(true);
+  const title = scheduleSection.querySelector('.section-title h2');
+  const desc = scheduleSection.querySelector('.section-title p');
+  if (title) title.textContent = 'IEEE Com Connect 2025';
+  if (desc) desc.textContent = 'Technical Program Schedule';
+
+  const tabList = scheduleSection.querySelector('.nav-tabs');
+  const tabPanes = scheduleSection.querySelector('.tab-content');
+  if (tabList && tabList.children[2]) tabList.children[2].remove();
+  if (tabPanes && tabPanes.children[2]) tabPanes.children[2].remove();
+
+  // Update tab behavior
+  const tabs = scheduleSection.querySelectorAll('.nav-tabs .nav-link');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function (ev) {
+      ev.preventDefault();
+      const targetId = this.getAttribute('href').substring(1);
+      const target = scheduleSection.querySelector(`#${targetId}`);
+      if (!target) return;
+      tabs.forEach(t => t.classList.remove('active'));
+      scheduleSection.querySelectorAll('.tab-pane').forEach(p =>
+        p.classList.remove('show', 'active')
+      );
+      this.classList.add('active');
+      target.classList.add('show', 'active');
     });
+  });
 
-    // Create new container for CommConnect content
-    const commConnectPage = document.createElement('div');
-    commConnectPage.id = 'commConnectPage';
-    commConnectPage.className = 'container mt-5';
-    commConnectPage.style.opacity = '0';
-    commConnectPage.style.transition = 'opacity 0.5s ease-in-out';
-
-    // Add back button at the top
-    const backBtn = document.createElement('button');
-    backBtn.textContent = 'Back to Main Site';
-    backBtn.className = 'btn btn-primary mb-4';
-    backBtn.style.backgroundColor = '#ff6600';
-    backBtn.style.borderColor = '#ff6600';
-
-    // Clone the schedule section
-    const scheduleSection = document.querySelector('#schedule').cloneNode(true);
-
-    // Modify schedule content for CommConnect
-    scheduleSection.querySelector('.section-title h2').textContent = 'IEEE Com Connect 2025';
-    scheduleSection.querySelector('.section-title p').textContent = 'Technical Program Schedule';
-
-    // Remove Nov 16 tab and content
-    const tabList = scheduleSection.querySelector('.nav-tabs');
-    const tabPanes = scheduleSection.querySelector('.tab-content');
-    tabList.removeChild(tabList.children[2]); // Remove Nov 16 tab
-    tabPanes.removeChild(tabPanes.children[2]); // Remove Nov 16 content
-
-    // Re-initialize Bootstrap tabs
-    const tabs = scheduleSection.querySelectorAll('.nav-tabs .nav-link');
-    tabs.forEach(tab => {
-      tab.addEventListener('click', function(e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1); // Remove # from href
-        const target = scheduleSection.querySelector(`#${targetId}`);
-        
-        if (target) {
-          // Remove active class from all tabs and panes
-          tabs.forEach(t => t.classList.remove('active'));
-          scheduleSection.querySelectorAll('.tab-pane').forEach(p => {
-            p.classList.remove('show', 'active');
-          });
-          
-          // Add active class to clicked tab and its corresponding pane
-          this.classList.add('active');
-          target.classList.add('show', 'active');
-        }
-      });
-    });
-
-    // Update Nov 15 content for CommConnect
-    const nov15Content = tabPanes.children[1];
+  // Update content for Nov 15
+  const nov15Content = tabPanes?.children[1];
+  if (nov15Content) {
     nov15Content.innerHTML = `
       <h3 class="sub-heading"><b>IEEE Leadership Summit & IEEE Com Connect 2025<br>Venue: Parallel Labs</b></h3>
 
@@ -2451,86 +2412,50 @@
 </div>
 
     `;
+  }
 
-    // Add content to CommConnect page
-    commConnectPage.appendChild(backBtn);
-    commConnectPage.appendChild(scheduleSection);
+  // Append schedule section last
+  commConnectPage.appendChild(scheduleSection);
 
-    // Add CommConnect page to body
-    document.body.appendChild(commConnectPage);
+  // Add to body
+  document.body.appendChild(commConnectPage);
 
-    // Smooth scroll and fade in
-    window.scrollTo({
-      top: 500,
-      behavior: 'smooth'
-    });
+  // Fade-in animation
+  window.scrollTo({ top: 500, behavior: 'smooth' });
+  setTimeout(() => (commConnectPage.style.opacity = '1'), 100);
 
-    // Fade in the content
+  // Back button handler
+  backBtn.onclick = function () {
+    commConnectPage.style.opacity = '0';
     setTimeout(() => {
-      commConnectPage.style.opacity = '1';
-    }, 100);
-
-    // Handle back button click
-    backBtn.onclick = function() {
-      // Fade out
-      commConnectPage.style.opacity = '0';
-
-      setTimeout(() => {
-      const mainContent = document.querySelectorAll('#header, #main, #footer');
-      mainContent.forEach(element => {
-        element.style.display = '';
-      });
+      mainContent.forEach(el => (el.style.display = ''));
       commConnectPage.remove();
+      window.scrollTo({ top: scrollPos, behavior: 'smooth' });
+    }, 500);
+  };
 
-      // Smooth scroll back to previous position
-      window.scrollTo({
-        top: scrollPos,
-        behavior: 'smooth'
-      });
-      }, 500);
-    };
-
-    // Handle header nav links while on CommConnect page
-    document.querySelectorAll('#header .navbar .scrollto').forEach(link => {
-      link.addEventListener('click', function(ev) {
+  // Re-enable header nav links
+  document.querySelectorAll('#header .navbar .scrollto').forEach(link => {
+    link.addEventListener('click', function (ev) {
       ev.preventDefault();
       const target = this.getAttribute('href');
-      // Fade out CommConnect page
       commConnectPage.style.opacity = '0';
       setTimeout(() => {
         commConnectPage.remove();
-        mainContent.forEach(element => {
-        element.style.display = '';
-        });
-        // Scroll to the section
+        mainContent.forEach(el => (el.style.display = ''));
         if (target && document.querySelector(target)) {
-        // Wait for main content to be visible before scrolling
-        setTimeout(() => {
           const header = document.querySelector('#header');
           const offset = header ? header.offsetHeight : 0;
           const sectionTop = document.querySelector(target).offsetTop;
-          window.scrollTo({
-          top: sectionTop - offset,
-          behavior: 'smooth'
-          });
-        }, 50);
+          window.scrollTo({ top: sectionTop - offset, behavior: 'smooth' });
         }
       }, 500);
-      });
     });
   });
-    
-  
-
+});
   </script>
 
 </body>
 </html>
-
-
-
-
-
-
 
 
